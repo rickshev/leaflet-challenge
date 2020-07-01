@@ -50,7 +50,7 @@ function createFeatures(earthquakeData) {
       fillOpacity: .75,
       radius: feature.properties.mag * 15000
     }).addTo(myMap)
-    // layer.bindPopup("<h3>" + feature.properties.place + "</h3><hr><p>" + new Date(feature.properties.time) + "<p>");
+    layer.bindPopup("<h3>" + feature.properties.place + "</h3><hr><p>" + new Date(feature.properties.time) + "<p>");
   }
 
   // GeoJSON layer containing earthquakeData features
@@ -73,6 +73,8 @@ legend.onAdd = function (map) {
       '<i style="background:' + colorMag(mag[i] + 1) + '"></i> ' +
       mag[i] + (mag[i + 1] ? '&ndash;' + mag[i + 1] + '<br>' : '+');
   }
+
+  div.innerHTML = labels.join('<br>');
 
   return div;
 };
